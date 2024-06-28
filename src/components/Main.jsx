@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { Context } from "../context/Context";
-import { User, Github, Linkedin, Copy } from "lucide-react";
-import { Link } from "react-router-dom";
-import Card from "../components/Card";
+import {  Copy } from "lucide-react";
 import Input from "../components/Input";
 
 const Main = () => {
@@ -33,62 +31,14 @@ const Main = () => {
 
 	return (
 		<div className="w-full min-h-screen bg-[#000] flex flex-col">
-			<div className="flex flex-col flex-grow w-full px-4 mx-auto max-w-7xl lg:px-56">
-				{/* Header section */}
-				<header className="flex items-center justify-between py-4">
-					<Link to="/">
-						<span className="text-xl font-bold text-white cursor-pointer sm:text-2xl">
-							.Ai🚀
-						</span>
-					</Link>
-					<div className="flex items-center gap-3">
-						<Link
-							to="https://github.com/mohitmaithanii/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<span className="flex items-center justify-center w-8 h-8 text-black duration-500 bg-white rounded-full hover:bg-gray-300 hover:text-black">
-								<Github className="w-5 h-5" />
-							</span>
-						</Link>
-						<Link
-							to="https://www.linkedin.com/in/mohitmaithanii/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<span className="flex items-center justify-center w-8 h-8 text-black duration-500 bg-white rounded-full hover:bg-gray-300 hover:text-black">
-								<Linkedin className="w-5 h-5" />
-							</span>
-						</Link>
-					</div>
-				</header>
+			<div className="flex flex-col flex-grow w-full px-4 mx-auto max-w-7xl ">
+				
 
 				{/* Main content */}
 				<main className="flex flex-col flex-grow">
-					{!showResult ? (
-						// Render card selection if showResult is false
-						<div>
-							<h1 className="max-w-4xl mt-6 text-4xl font-bold tracking-tight text-white sm:text-7xl lg:text-8xl">
-								Hello, <span className="text-[#999]">Dev</span>.
-							</h1>
-							<p className="max-w-3xl my-4 text-xl text-[#777] sm:text-4xl lg:text-5xl">
-								How can I help you today?
-							</p>
-							<div className="mt-12 lg:mt-24">
-								<Card onCardClick={handleCardClick} />
-							</div>
-						</div>
-					) : (
-						// Render result section if showResult is true
+						
 						<div className="flex flex-col items-start w-full mt-4">
-							<div className="flex items-center gap-4 mb-4">
-								<span className="flex items-center justify-center w-8 h-8 text-white bg-[#0D0D0D] rounded-full">
-									<User className="w-5 h-5" />
-								</span>
-								<p className="py-2 text-sm font-semibold text-white">
-									{recentPrompt}
-								</p>
-							</div>
+							
 							<div className="w-full px-2 py-4 mx-auto overflow-y-scroll text-white bg-[#0D0D0D] shadow-2xl rounded-xl no-scrollbar h-80 xl:h-96 relative">
 								<div className="flex justify-between items-center">
 									<div className="flex items-center px-3 mb-2">
@@ -133,7 +83,7 @@ const Main = () => {
 								)}
 							</div>
 						</div>
-					)}
+					
 
 					{/* Input component */}
 					<div className="my-3">
@@ -141,11 +91,7 @@ const Main = () => {
 					</div>
 				</main>
 
-				{/* Footer */}
-				<footer className="py-4 text-xs text-center text-gray-600">
-					<span className="font-bold">.Ai</span> can make mistakes. Consider
-					checking important information.
-				</footer>
+				
 			</div>
 		</div>
 	);
