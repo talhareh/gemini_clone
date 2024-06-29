@@ -14,19 +14,19 @@ const ContextProvider = (props) => {
 	const [loading, setLoading] = useState(false);
 	const [resultData, setResultData] = useState("");
 
-	// Function to delay rendering paragraphs
-	const delayPara = (index, nextWord) => {
-		setTimeout(() => {
-			setResultData((prev) => prev + nextWord);
-		}, 75 * index);
-	};
-
 	// Function to start a new chat session
 	const newChat = () => {
 		setLoading(false);
 		setShowResult(false);
 		setRecentPrompt("");
 		setResultData("");
+	};
+
+	// Function to delay rendering paragraphs
+	const delayPara = (index, nextWord) => {
+		setTimeout(() => {
+			setResultData((prev) => prev + nextWord);
+		}, 75 * index);
 	};
 
 	// Function to handle sending a prompt
@@ -52,6 +52,8 @@ const ContextProvider = (props) => {
 
 		let responseArray = response.split("**");
 		let newResponse = "";
+
+		// separates the bullet points one by one and make them bold
 		for (let i = 0; i < responseArray.length; i++) {
 			if (i === 0 || i % 2 !== 1) {
 				newResponse += responseArray[i];
@@ -60,7 +62,10 @@ const ContextProvider = (props) => {
 			}
 		}
 
+		// separates the lines from one another
 		let newResponse2 = newResponse.split("*").join("</br>");
+
+		//puts delay in rendering the paragraph
 		let newResponseArray = newResponse2.split(" ");
 		for (let i = 0; i < newResponseArray.length; i++) {
 			const nextWord = newResponseArray[i];
